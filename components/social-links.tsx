@@ -8,7 +8,7 @@ const socials = [
     handle: "blazyrawr",
     icon: MessageCircle,
     color: "hover:bg-indigo-500/10 hover:border-indigo-500/50 hover:text-indigo-400",
-    url: "https://discord.com/users/blazyrawr",
+    url: "https://discord.com/users/101702710314672128",
   },
   {
     name: "Roblox",
@@ -26,7 +26,7 @@ export function SocialLinks() {
         <span className="w-2 h-2 bg-orange-500 rounded-full" />
         Connect
       </h2>
-      
+
       <div className="space-y-3">
         {socials.map((social) => (
           <a
