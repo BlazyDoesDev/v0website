@@ -6,7 +6,7 @@ const experiences = [
   {
     role: "Operations Manager",
     company: "Bloxly",
-    period: "March 2026-Present",
+    period: "03/2026-Present",
     description: "Assists with business operations and marketing",
     skills: ["Stripe", "Customer Support", "Marketing", "Social Media"],
   },
