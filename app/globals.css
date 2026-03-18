@@ -137,3 +137,77 @@
 .animate-shimmer {
   animation: shimmer 2s infinite;
 }
+
+@keyframes banner-wave-front {
+  0%,
+  100% {
+    transform: translate3d(0, 10px, 0) scaleY(1);
+  }
+  50% {
+    transform: translate3d(-1.5%, -8px, 0) scaleY(1.04);
+  }
+}
+
+@keyframes banner-wave-back {
+  0%,
+  100% {
+    transform: translate3d(0, 12px, 0) scaleY(1);
+  }
+  50% {
+    transform: translate3d(1.5%, -10px, 0) scaleY(0.98);
+  }
+}
+
+@keyframes banner-particle-float {
+  0% {
+    transform: translate3d(0, 16px, 0) scale(0.92);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate3d(14px, -12px, 0) scale(1);
+  }
+  80% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(-10px, -34px, 0) scale(0.9);
+    opacity: 0;
+  }
+}
+
+.profile-banner-wave {
+  position: absolute;
+  inset-inline: -4%;
+  bottom: -1px;
+  width: 108%;
+  height: 74px;
+  will-change: transform;
+}
+
+.profile-banner-wave-back {
+  animation: banner-wave-back 6.5s ease-in-out infinite;
+}
+
+.profile-banner-wave-front {
+  animation: banner-wave-front 4.6s ease-in-out infinite;
+}
+
+.profile-banner-particle {
+  position: absolute;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 237, 213, 0.95), rgba(251, 146, 60, 0.6) 45%, transparent 70%);
+  box-shadow: 0 0 18px rgba(251, 146, 60, 0.25);
+  animation: banner-particle-float linear infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-banner-wave,
+  .profile-banner-particle {
+    animation: none;
+  }
+}
