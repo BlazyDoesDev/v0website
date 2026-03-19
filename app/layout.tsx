@@ -1,22 +1,38 @@
 import type { Metadata } from 'next'
 import { Inter, Orbitron } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import './globals.css'
 
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: '--font-inter'
-});
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
 
-const orbitron = Orbitron({ 
-  subsets: ["latin"],
-  variable: '--font-orbitron'
-});
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  variable: '--font-orbitron',
+})
+
+const description =
+  'Professional Community Manager specializing in gaming communities, Discord moderation, and player engagement'
 
 export const metadata: Metadata = {
-  title: 'Community Manager | Roblox Profile',
-  description: 'Professional Community Manager specializing in gaming communities, Discord moderation, and player engagement',
+  title: 'Blazy',
+  description,
+  applicationName: 'Blazy',
   generator: 'v0.app',
+  themeColor: '#f97316',
+  openGraph: {
+    title: 'Blazy',
+    description,
+    siteName: 'Blazy',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Blazy',
+    description,
+  },
   icons: {
     icon: [
       {
@@ -45,7 +61,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${orbitron.variable} font-sans antialiased`}>
         {children}
-        <Analytics />
+        <Script
+          async
+          src="https://scripts.simpleanalyticscdn.com/latest.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
