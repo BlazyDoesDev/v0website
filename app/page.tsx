@@ -12,6 +12,7 @@ export default function ProfilePage() {
       <VideoBackground />
       
       <main className="relative max-w-5xl mx-auto px-4 py-8">
+        <p className="mb-4 text-sm font-semibold text-primary">hi</p>
         {/* Profile Card */}
         <div className="bg-card border border-border rounded-xl overflow-hidden mb-6">
           <ProfileHeader />
