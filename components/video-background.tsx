@@ -1,110 +1,61 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Volume2, VolumeX } from "lucide-react"
 
-declare global {
-  interface Window {
-    YT: {
-      Player: new (
-        elementId: string,
-        config: {
-          videoId: string
-          playerVars: Record<string, number | string>
-          events: {
-            onReady: (event: { target: YTPlayer }) => void
-          }
-        }
-      ) => YTPlayer
-    }
-    onYouTubeIframeAPIReady: () => void
-  }
-}
-
-interface YTPlayer {
-  setVolume: (volume: number) => void
-  getVolume: () => number
-  mute: () => void
-  unMute: () => void
-  isMuted: () => boolean
-}
-
 export function VideoBackground() {
+  const videoRef = useRef<HTMLVideoElement | null>(null)
   const [volume, setVolume] = useState(30)
-  const [isMuted, setIsMuted] = useState(false)
-  const [isReady, setIsReady] = useState(false)
-  const playerRef = useRef<YTPlayer | null>(null)
+  const [isMuted, setIsMuted] = useState(true)
 
   useEffect(() => {
-    // Load YouTube IFrame API
-    const tag = document.createElement("script")
-    tag.src = "https://www.youtube.com/iframe_api"
-    const firstScriptTag = document.getElementsByTagName("script")[0]
-    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag)
+    const video = videoRef.current
+    if (!video) return
 
-    window.onYouTubeIframeAPIReady = () => {
-      playerRef.current = new window.YT.Player("youtube-player", {
-        videoId: "16iKzV6e9Pk",
-        playerVars: {
-          autoplay: 1,
-          loop: 1,
-          playlist: "16iKzV6e9Pk",
-          controls: 0,
-          showinfo: 0,
-          rel: 0,
-          modestbranding: 1,
-          playsinline: 1,
-        },
-        events: {
-          onReady: (event) => {
-            event.target.setVolume(30)
-            setIsReady(true)
-          },
-        },
+    video.volume = volume / 100
+    video.muted = isMuted
+
+    const playPromise = video.play()
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {
+        // Autoplay can be blocked by browser policy; keep muted fallback.
       })
     }
-
-    return () => {
-      window.onYouTubeIframeAPIReady = () => {}
-    }
-  }, [])
+  }, [volume, isMuted])
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = parseInt(e.target.value)
+    const newVolume = Number.parseInt(e.target.value, 10)
     setVolume(newVolume)
-    if (playerRef.current && isReady) {
-      playerRef.current.setVolume(newVolume)
-      if (newVolume > 0 && isMuted) {
-        playerRef.current.unMute()
-        setIsMuted(false)
-      }
+    if (newVolume > 0 && isMuted) {
+      setIsMuted(false)
+    }
+    if (newVolume === 0) {
+      setIsMuted(true)
     }
   }
 
   const toggleMute = () => {
-    if (playerRef.current && isReady) {
-      if (isMuted) {
-        playerRef.current.unMute()
-        playerRef.current.setVolume(volume)
-      } else {
-        playerRef.current.mute()
-      }
-      setIsMuted(!isMuted)
-    }
+    setIsMuted((current) => !current)
   }
 
   return (
     <>
-      {/* Video Container */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 scale-150">
-          <div id="youtube-player" className="w-full h-full" />
-        </div>
-        {/* Blur and dark overlay */}
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover scale-150"
+          src="/videos/background.mp4"
+          autoPlay
+          loop
+          muted={isMuted}
+          playsInline
+          preload="auto"
+        >
+          Your browser does not support HTML5 video.
+        </video>
         <div className="absolute inset-0 backdrop-blur-sm bg-background/80" />
       </div>
 
-      {/* Volume Control */}
       <div className="fixed bottom-4 right-4 z-50 flex items-center gap-2 bg-card/90 backdrop-blur-md border border-border rounded-lg px-3 py-2">
         <button
           onClick={toggleMute}
@@ -126,9 +77,7 @@ export function VideoBackground() {
           className="w-20 h-1 bg-secondary rounded-lg appearance-none cursor-pointer accent-orange-500"
           aria-label="Volume"
         />
-        <span className="text-xs text-muted-foreground w-8 tabular-nums">
-          {isMuted ? 0 : volume}%
-        </span>
+        <span className="text-xs text-muted-foreground w-8 tabular-nums">{isMuted ? 0 : volume}%</span>
       </div>
     </>
   )

@@ -60,6 +60,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${orbitron.variable} font-sans antialiased`}>
+        <noscript>
+          <div style={{ position: 'fixed', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+            <video
+              src="/videos/background.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.5)' }}
+            >
+              Your browser does not support HTML5 video.
+            </video>
+            <div style={{ position: 'absolute', inset: 0, backdropFilter: 'blur(4px)', background: 'rgba(8, 4, 20, 0.8)' }} />
+          </div>
+        </noscript>
         {children}
         <Script
           async
