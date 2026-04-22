@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Orbitron } from 'next/font/google'
 import Script from 'next/script'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 const inter = Inter({
@@ -61,6 +62,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${orbitron.variable} font-sans antialiased`}>
         {children}
+        <SpeedInsights />
         <Script
           async
           src="https://scripts.simpleanalyticscdn.com/latest.js"
