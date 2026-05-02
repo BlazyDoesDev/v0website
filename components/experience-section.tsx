@@ -19,7 +19,7 @@ const experiences = [
   },
   {
     role: "Corporate Intern",
-    company: "Freshly Shopping UK",
+    company: "Freshly",
     period: "02/2026-Present",
     description: "Contributing to community management in one of the larger Roblox groups with 394K members, Working accross all departments, with a small team of corporates",
     skills: ["Deputy Head Of Interns", "Team Collaboration", "Community Support", "Intern Trainer", "Public Relations", "Internal Affairs", "Support"],
