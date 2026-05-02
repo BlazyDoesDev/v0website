@@ -11,14 +11,14 @@ const experiences = [
     skills: ["Stripe", "Customer Support", "Marketing", "Social Media"],
   },
   {
-    role: "Founders Assistant",
+    role: "Ownership Assistant",
     company: "Naansense",
     period: "05/2026-Present",
     description: "Assisting founders with community management, operations, and strategic growth.",
     skills: ["Operations", "Leadership", "Strategic Planning", "Community Management"],
   },
   {
-    role: "Ownership Assistant",
+    role: "Chief of IA",
     company: "Naansense",
     period: "03/2026-05/2026",
     description: "Leading internal affairs for a growing Roblox community with 124+ members",

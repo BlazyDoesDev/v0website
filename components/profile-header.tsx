@@ -112,7 +112,7 @@ export function ProfileHeader() {
         {/* Bio */}
         <p className="mt-4 text-muted-foreground text-sm leading-relaxed max-w-2xl">
           Community Management specialist with experience in Roblox groups and Discord servers.
-          Chief Internal Affairs Officer at Naansense and Corporate Intern at Freshly.
+          Ownership Assistant at Naansense and Corporate Intern at Freshly.
           Passionate about building and maintaining thriving gaming communities.
         </p>
 
