@@ -23,7 +23,7 @@ export function SocialLinks() {
   return (
     <div className="bg-card border border-border rounded-xl p-6">
       <h2 className="text-lg font-bold font-[family-name:var(--font-display)] text-foreground mb-4 flex items-center gap-2">
-        <span className="w-2 h-2 bg-orange-500 rounded-full" />
+        <span className="w-2 h-2 bg-orange-500 rounded-full shadow-[0_0_8px_rgba(249,115,22,0.8)]" />
         Connect
       </h2>
 

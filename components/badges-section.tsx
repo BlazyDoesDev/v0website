@@ -26,18 +26,18 @@ const badges = [
     description: "Achieved 4.9+ rating from 50+ clients",
     icon: Star,
     rarity: "Epic",
-    color: "from-cyan-500 to-blue-500",
-    bgColor: "bg-cyan-500/10",
-    borderColor: "border-cyan-500/50",
+    color: "from-red-500 to-orange-500",
+    bgColor: "bg-red-500/10",
+    borderColor: "border-red-500/50",
   },
   {
     name: "Engagement Expert",
     description: "Maintained 90%+ member retention rate",
     icon: Flame,
     rarity: "Rare",
-    color: "from-emerald-500 to-green-500",
-    bgColor: "bg-emerald-500/10",
-    borderColor: "border-emerald-500/50",
+    color: "from-orange-500 to-amber-500",
+    bgColor: "bg-orange-500/10",
+    borderColor: "border-orange-500/50",
   },
   {
     name: "Roblox Veteran",
@@ -53,23 +53,23 @@ const badges = [
     description: "Grew a community from 0 to 100K members",
     icon: Sparkles,
     rarity: "Epic",
-    color: "from-pink-500 to-rose-500",
-    bgColor: "bg-pink-500/10",
-    borderColor: "border-pink-500/50",
+    color: "from-rose-500 to-red-500",
+    bgColor: "bg-rose-500/10",
+    borderColor: "border-rose-500/50",
   },
 ]
 
 const rarityColors: Record<string, string> = {
   Legendary: "text-amber-400",
   Epic: "text-purple-400",
-  Rare: "text-emerald-400",
+  Rare: "text-orange-400",
 }
 
 export function BadgesSection() {
   return (
     <div className="bg-card border border-border rounded-xl p-6">
       <h2 className="text-lg font-bold font-[family-name:var(--font-display)] text-foreground mb-4 flex items-center gap-2">
-        <span className="w-2 h-2 bg-red-500 rounded-full" />
+        <span className="w-2 h-2 bg-red-500 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
         Achievements
       </h2>
       

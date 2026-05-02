@@ -1,6 +1,6 @@
 "use client"
 
-import { Briefcase } from "lucide-react"
+import { Flame } from "lucide-react"
 
 const experiences = [
   {
@@ -63,11 +63,11 @@ export function ExperienceSection() {
                 <div className="w-10 flex flex-col items-center flex-shrink-0">
                   {!isSameCompanyAsPrevious ? (
                     <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center relative z-10">
-                      <Briefcase className="w-5 h-5 text-orange-400" />
+                      <Flame className="w-5 h-5 text-orange-500 animate-pulse" />
                     </div>
                   ) : (
                     <div className="w-10 h-10 flex items-center justify-center relative z-10">
-                      <div className="w-2 h-2 rounded-full bg-border ring-4 ring-card" />
+                      <div className="w-2 h-2 rounded-full bg-orange-500 ring-4 ring-card shadow-[0_0_8px_rgba(249,115,22,0.8)]" />
                     </div>
                   )}
               </div>

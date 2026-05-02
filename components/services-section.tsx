@@ -33,7 +33,7 @@ export function ServicesSection() {
   return (
     <div className="bg-card border border-border rounded-xl p-6">
       <h2 className="text-lg font-bold font-[family-name:var(--font-display)] text-foreground mb-4 flex items-center gap-2">
-        <span className="w-2 h-2 bg-emerald-500 rounded-full" />
+        <span className="w-2 h-2 bg-red-500 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
         Services
       </h2>
       
@@ -41,18 +41,18 @@ export function ServicesSection() {
         {services.map((service) => (
           <div
             key={service.name}
-            className="p-4 bg-secondary/50 rounded-xl border border-border/50 hover:border-emerald-500/50 transition-colors group"
+            className="p-4 bg-secondary/50 rounded-xl border border-border/50 hover:border-red-500/50 transition-colors group"
           >
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
-                <service.icon className="w-5 h-5 text-emerald-400" />
+              <div className="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0">
+                <service.icon className="w-5 h-5 text-red-400 group-hover:scale-110 transition-transform" />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-foreground group-hover:text-emerald-400 transition-colors">
+                <h3 className="font-semibold text-foreground group-hover:text-red-400 transition-colors">
                   {service.name}
                 </h3>
                 <p className="text-xs text-muted-foreground mt-1">{service.description}</p>
-                <p className="text-sm font-semibold text-cyan-400 mt-2">{service.price}</p>
+                <p className="text-sm font-semibold text-orange-400 mt-2">{service.price}</p>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckCircle, Circle } from "lucide-react"
+import { CheckCircle, Circle, Flame } from "lucide-react"
 
 const bannerParticles = [
   { size: 8, left: "8%", top: "22%", duration: "7s", delay: "0s" },
@@ -68,7 +68,7 @@ export function ProfileHeader() {
         <div className="flex flex-col sm:flex-row sm:items-end gap-4 -mt-12">
           {/* Avatar */}
           <div className="relative">
-            <div className="w-24 h-24 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 p-1">
+            <div className="w-24 h-24 rounded-xl bg-gradient-to-br from-orange-500 via-red-500 to-purple-600 p-1 shadow-[0_0_15px_rgba(239,68,68,0.5)]">
               <img
                 src="https://avatar.hyra.io/colour/6511685"
                 alt="Blazy's Roblox Avatar"
@@ -87,6 +87,7 @@ export function ProfileHeader() {
               <h1 className="text-2xl font-bold font-[family-name:var(--font-display)] text-foreground">
                 Blazy
               </h1>
+              <Flame className="w-5 h-5 text-red-500 fill-red-500/20 animate-pulse" />
               <CheckCircle className="w-5 h-5 text-orange-400" />
             </div>
             <p className="text-muted-foreground text-sm mt-1">@blazyrawr</p>
