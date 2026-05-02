@@ -4,7 +4,7 @@ import { Briefcase } from "lucide-react"
 
 const experiences = [
   {
-    role: "Operations Manager",
+    role: "Operations & Human Resources Manager",
     company: "Bloxly",
     period: "03/2026-Present",
     description: "Assists with business operations and marketing",
@@ -29,7 +29,7 @@ const experiences = [
     company: "Freshly",
     period: "02/2026-Present",
     description: "Contributing to community management in one of the larger Roblox groups with 394K members, Working accross all departments, with a small team of corporates",
-    skills: ["Deputy Head Of Interns", "Team Collaboration", "Community Support", "Intern Trainer", "Public Relations", "Internal Affairs", "Support"],
+    skills: ["Deputy Head Of Interns", "Team Collaboration", "Community Support", "Intern Trainer", "Deputy Intern Trainer", "Public Relations", "Internal Affairs", "Support"],
   },
 ]
 
@@ -85,14 +85,30 @@ export function ExperienceSection() {
                 <p className="text-sm text-muted-foreground mt-2">{exp.description}</p>
 
                 <div className="flex flex-wrap gap-2 mt-3">
-                  {exp.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-2 py-1 bg-secondary text-xs text-muted-foreground rounded"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {exp.skills.map((skill) => {
+                    const isNew = skill === "Deputy Intern Trainer";
+                    return (
+                      <span
+                        key={skill}
+                        className={`px-2 py-1 text-xs rounded flex items-center gap-1.5 ${
+                          isNew
+                            ? "bg-orange-500/10 text-orange-400 ring-1 ring-orange-500/30 relative overflow-hidden"
+                            : "bg-secondary text-muted-foreground"
+                        }`}
+                      >
+                        {isNew && (
+                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer" />
+                        )}
+                        {skill}
+                        {isNew && (
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                          </span>
+                        )}
+                      </span>
+                    )
+                  })}
                 </div>
               </div>
             </div>
