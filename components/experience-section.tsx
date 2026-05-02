@@ -11,7 +11,7 @@ const experiences = [
     skills: ["Stripe", "Customer Support", "Marketing", "Social Media"],
   },
   {
-    role: "Chief Internal Affairs Officer",
+    role: "Ownership Assistant",
     company: "Naansense",
     period: "03/2026-Present",
     description: "Leading internal affairs for a growing Roblox community with 124+ members",
@@ -22,7 +22,7 @@ const experiences = [
     company: "Freshly Shopping UK",
     period: "02/2026-Present",
     description: "Contributing to community management in one of the larger Roblox groups with 394K members, Working accross all departments, with a small team of corporates",
-    skills: ["Corporate Operations", "Team Collaboration", "Community Support", "Intern Trainer", "Public Relations", "Internal Affairs", "Support"],
+    skills: ["Deputy Head Of Interns", "Team Collaboration", "Community Support", "Intern Trainer", "Public Relations", "Internal Affairs", "Support"],
   },
 ]
 
