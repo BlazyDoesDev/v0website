@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, Orbitron } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
@@ -16,12 +16,15 @@ const orbitron = Orbitron({
 const description =
   'Professional Community Manager specializing in gaming communities, Discord moderation, and player engagement'
 
+export const viewport: Viewport = {
+  themeColor: '#f97316',
+}
+
 export const metadata: Metadata = {
   title: 'Blazy',
   description,
   applicationName: 'Blazy',
   generator: 'v0.app',
-  themeColor: '#f97316',
   openGraph: {
     title: 'Blazy',
     description,

@@ -69,6 +69,7 @@ export function ProfileHeader() {
           {/* Avatar */}
           <div className="relative">
             <div className="w-24 h-24 rounded-xl bg-gradient-to-br from-orange-500 via-red-500 to-purple-600 p-1 shadow-[0_0_15px_rgba(239,68,68,0.5)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://avatar.hyra.io/colour/6511685"
                 alt="Blazy's Roblox Avatar"
