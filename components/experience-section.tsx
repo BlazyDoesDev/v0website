@@ -11,9 +11,16 @@ const experiences = [
     skills: ["Stripe", "Customer Support", "Marketing", "Social Media"],
   },
   {
+    role: "Founders Assistant",
+    company: "Naansense",
+    period: "05/2026-Present",
+    description: "Assisting founders with community management, operations, and strategic growth.",
+    skills: ["Operations", "Leadership", "Strategic Planning", "Community Management"],
+  },
+  {
     role: "Ownership Assistant",
     company: "Naansense",
-    period: "03/2026-Present",
+    period: "03/2026-05/2026",
     description: "Leading internal affairs for a growing Roblox community with 124+ members",
     skills: ["Internal Affairs", "Leadership", "Moderation", "Community Growth"],
   },
@@ -35,24 +42,46 @@ export function ExperienceSection() {
       </h2>
 
       <div className="space-y-6">
-        {experiences.map((exp, index) => (
-          <div key={exp.role} className="relative">
-            {/* Timeline line */}
-            {index < experiences.length - 1 && (
-              <div className="absolute left-5 top-12 bottom-0 w-px bg-border" />
-            )}
+        {experiences.map((exp, index) => {
+          const isSameCompanyAsPrevious = index > 0 && experiences[index - 1].company === exp.company;
+          
+          return (
+            <div key={`${exp.company}-${exp.role}`} className="relative">
+              {/* Timeline line */}
+              {experiences.length > 1 && (
+                <div 
+                  className={`absolute left-5 w-px bg-border z-0 ${
+                    index === 0 ? "top-10 bottom-[-1.5rem]" : 
+                    index === experiences.length - 1 ? "top-0 h-5" : 
+                    "top-0 bottom-[-1.5rem]"
+                  }`} 
+                />
+              )}
 
-            <div className="flex gap-4">
-              <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0">
-                <Briefcase className="w-5 h-5 text-orange-400" />
+              <div className="flex gap-4 relative z-10">
+                {/* Timeline Node */}
+                <div className="w-10 flex flex-col items-center flex-shrink-0">
+                  {!isSameCompanyAsPrevious ? (
+                    <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center relative z-10">
+                      <Briefcase className="w-5 h-5 text-orange-400" />
+                    </div>
+                  ) : (
+                    <div className="w-10 h-10 flex items-center justify-center relative z-10">
+                      <div className="w-2 h-2 rounded-full bg-border ring-4 ring-card" />
+                    </div>
+                  )}
               </div>
 
-              <div className="flex-1 min-w-0">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                  <h3 className="font-semibold text-foreground">{exp.role}</h3>
-                  <span className="text-xs text-muted-foreground font-mono">{exp.period}</span>
-                </div>
-                <p className="text-sm text-orange-400 mt-0.5">{exp.company}</p>
+                <div className="flex-1 min-w-0 pt-1 pb-2">
+                  {!isSameCompanyAsPrevious && (
+                    <h3 className="text-base font-bold text-orange-400 mb-2">{exp.company}</h3>
+                  )}
+                  
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                    <h4 className="font-semibold text-foreground">{exp.role}</h4>
+                    <span className="text-xs text-muted-foreground font-mono">{exp.period}</span>
+                  </div>
+                  
                 <p className="text-sm text-muted-foreground mt-2">{exp.description}</p>
 
                 <div className="flex flex-wrap gap-2 mt-3">
@@ -67,8 +96,9 @@ export function ExperienceSection() {
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+            </div>
+          )
+        })}
       </div>
     </div>
   )
